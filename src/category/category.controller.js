@@ -5,7 +5,7 @@ import Publication from './../publication/publication.model.js';
 
 export const test = (req, res) => {
     console.log('category test is running...');
-    res.send({ message: `Category test is running...` });
+    return res.send({ message: `Category test is running...` });
 }
 
 //CREATE

@@ -67,7 +67,10 @@ export const login = async (req, res) => {
                 loggedUser,
                 authorization
             })
+        }else{
+            return res.status(404).send({ message: `Invalid credentials.` })
         }
+
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: `Error login | login` });
@@ -77,10 +80,24 @@ export const login = async (req, res) => {
 //Funcion para modificar el usuario
 export const update = async (req, res) => {
     try {
+
         //extraer valores de req.user
-        let { _id } = req.user;
+        let user = req.user;
+
+        let userFind = await User.findOne({_id: user.uid});
+        
         //extraer datos a actualizar
         let data = req.body;
+
+        //validamos si el usuario quiere modificar su contrasenia
+        if(data.password){
+            //validamos si ingreso la nueva contrasenia
+            if(!data.newPassword || data.newPassword == '') return res.status(401).send({message:`New password is required.`});
+            //validamos que la contrasenia antigua concida para poder cambiarla (p)
+            if (await checkPassword(data.password, userFind.password)) {
+                data.password = data.newPassword;
+            }
+        }
 
         //validar si trae datos y si se pueden modificar.
         if (!checkUpdate(data, false)) return res.status(400).send({ message: `Have submitted some data that cannot be updated or missing data` });

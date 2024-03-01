@@ -30,4 +30,5 @@ const publicationShema = Schema({
     versionKey: false
 })
 
+//exportar el schema
 export default model('Publication', publicationShema);
