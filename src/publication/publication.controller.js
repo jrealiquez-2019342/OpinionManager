@@ -109,6 +109,31 @@ export const comment = async (req, res) => {
     }
 }
 
+//editar publicacion
+export const updateP = async(req, res)=>{
+    try {
+        let {idPublication} = req.params;
+        let data = req.body;
+
+        let find = await Publication.findOneAndUpdate(
+            {
+                _id: idPublication,
+                user: req.user._id
+            },
+            data,
+            {new: true}
+        );
+
+        if(!find) return res.status(400).send({message:`Publication not found and not deleted | or unauthorized`});
+
+        return res.send({message:`Pulication updated successfully...`, find});
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({message:`Error updating publication | updateP`});
+    }
+}
+
 //editar comentario
 export const updateC = async (req, res) => {
     try {

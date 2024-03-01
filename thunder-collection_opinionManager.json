@@ -1,0 +1,421 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "opinionManager",
+    "dateExported": "2024-03-01T23:52:12.230Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "user",
+            "containerId": "",
+            "created": "2024-03-01T15:12:39.729Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "category",
+            "containerId": "",
+            "created": "2024-03-01T15:12:50.065Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "publication",
+            "containerId": "",
+            "created": "2024-03-01T16:30:01.375Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "cbc430b5-1c30-4792-bf4f-f03cba28c9eb",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "register",
+            "url": "/user/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-01T15:12:39.732Z",
+            "modified": "2024-03-01T16:27:29.217Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Joshua Elí Isaac"
+                    },
+                    {
+                        "name": "surname",
+                        "value": "Realiquez Sosa"
+                    },
+                    {
+                        "name": "username",
+                        "value": "realiquez777"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    },
+                    {
+                        "name": "email",
+                        "value": "realiquezisaac@gmail.com"
+                    },
+                    {
+                        "name": "phone",
+                        "value": "50524961"
+                    },
+                    {
+                        "name": "role",
+                        "value": "CLIENT"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "903b776b-2aac-4f3f-9fa0-c9e9c6dba427",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "test",
+            "url": "/user/test",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-01T15:12:39.732Z",
+            "modified": "2024-03-01T15:12:39.732Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8bfe026a-d6d8-4fbe-8a09-7e17a3d559a6",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "test",
+            "url": "/category/test",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-01T15:13:29.746Z",
+            "modified": "2024-03-01T15:13:38.828Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "35a81e6c-da8c-4eb6-a3b5-180b0a24898c",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "login",
+            "url": "/user/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-01T15:12:39.732Z",
+            "modified": "2024-03-01T22:08:58.955Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "realiquez777"
+                    },
+                    {
+                        "name": "password",
+                        "value": "123"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c88af1a4-51db-484a-9a21-000b88a18b19",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "createCategory",
+            "url": "/category/save",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-03-01T15:12:50.070Z",
+            "modified": "2024-03-01T16:29:33.632Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Technology"
+                    },
+                    {
+                        "name": "description",
+                        "value": "All about technology"
+                    },
+                    {
+                        "name": "isDefault",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "16272c2f-67fa-48b2-a8b9-334672eca87e",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "updateUser",
+            "url": "/user/update",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2024-03-01T15:12:39.732Z",
+            "modified": "2024-03-01T21:24:34.944Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Josue"
+                    },
+                    {
+                        "name": "password",
+                        "value": "987"
+                    },
+                    {
+                        "name": "newPassword",
+                        "value": "987"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "14cad8cf-3e70-4ba4-8cd6-c322b93bb6f0",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "deleteCategory",
+            "url": "/category/delete/65e165d0171763dd3c60bbd6",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2024-03-01T15:12:50.070Z",
+            "modified": "2024-03-01T15:12:50.070Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a3909fb9-16c1-4b29-80e2-4cf4c826fe60",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "updateCategory",
+            "url": "/category/update/65e165d0171763dd3c60bbd6",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2024-03-01T15:12:50.070Z",
+            "modified": "2024-03-01T15:12:50.070Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Technology"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "f4a15989-4b5c-4467-95cc-55832ab9c923",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "a784ad38-15cb-44a6-98f5-d0b07d9d93ba",
+            "name": "getCategories",
+            "url": "/category/get",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2024-03-01T15:12:50.070Z",
+            "modified": "2024-03-01T15:12:50.070Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b1135e9a-6ec9-426c-a9ea-ff7f29ca30a2",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "createPublication",
+            "url": "/publication/create",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2024-03-01T16:48:58.965Z",
+            "modified": "2024-03-01T22:48:58.047Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Animals"
+                    },
+                    {
+                        "name": "comment",
+                        "value": "What do yo do for all animals?"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a433ec93-5c6b-4eec-be3f-defe3f4e401c",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "829696dd-268c-4306-8747-a2c3ce56c99e",
+            "name": "deleteUser",
+            "url": "",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-03-01T21:02:37.844Z",
+            "modified": "2024-03-01T21:02:37.845Z",
+            "headers": []
+        },
+        {
+            "_id": "144f4ae0-f894-4657-9540-530f268ee866",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "commentPublication",
+            "url": "/publication/comment",
+            "method": "POST",
+            "sortNum": 200000,
+            "created": "2024-03-01T22:05:31.810Z",
+            "modified": "2024-03-01T22:09:27.988Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "postId",
+                        "value": "65e20adfeb640cad7356f7db"
+                    },
+                    {
+                        "name": "comment",
+                        "value": "Technology in Guatemala is not very updated"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "26f0898c-0d0c-4e00-8306-5234681e6d2b",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "getPublications",
+            "url": "/publication/get",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2024-03-01T22:09:53.237Z",
+            "modified": "2024-03-01T22:12:34.576Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4721fb40-4bf1-4960-aa63-57f830d85652",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "deleteComment",
+            "url": "/publication/comment/delete/65e25217a1a7afde1d745176",
+            "method": "DELETE",
+            "sortNum": 220000,
+            "created": "2024-03-01T22:53:29.886Z",
+            "modified": "2024-03-01T23:07:37.961Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8016225d-7365-48f7-a9f2-0fbbc682e3a2",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "deletePublication",
+            "url": "/publication/delete/65e25b5a5a4d97e8b5f0fb50",
+            "method": "DELETE",
+            "sortNum": 230000,
+            "created": "2024-03-01T23:24:21.699Z",
+            "modified": "2024-03-01T23:25:55.412Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ec9d594c-286f-43d5-a4de-dfce26108d78",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "editComment",
+            "url": "/publication/comment/update/65e266cf00b68f844bbd2593",
+            "method": "PUT",
+            "sortNum": 240000,
+            "created": "2024-03-01T23:36:29.437Z",
+            "modified": "2024-03-01T23:39:42.866Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "comment",
+                        "value": "Technology in Guatemala is not very updated. We must improve"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "4dce9d85-1121-4d87-a85a-47ca276e3284",
+            "colId": "28af581a-0c8c-4d77-8ec3-ff340fe47aff",
+            "containerId": "18786a67-f0fb-4a37-9a4a-3370e43cb547",
+            "name": "updatePublication",
+            "url": "/publication/update/65e269c9617311a7d50ee7bc",
+            "method": "PUT",
+            "sortNum": 250000,
+            "created": "2024-03-01T23:48:54.917Z",
+            "modified": "2024-03-01T23:51:08.957Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Animals and more..."
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [
+            {
+                "name": "authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWUyMDFmMTE0OTdkOWQ3NjVmOTg0YmQiLCJ1c2VybmFtZSI6InJlYWxpcXVlejc3NyIsIm5hbWUiOiJKb3NodWEgRWzDrSBJc2FhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTMzMDkzOCwiZXhwIjoxNzA5MzQxNzM4fQ.5BsJxgg6GHBfPj-1jI48uZOj9bnSaa4fFgrEy2if6cQ"
+            }
+        ],
+        "options": {
+            "baseUrl": "localhost:2657"
+        }
+    }
+}
