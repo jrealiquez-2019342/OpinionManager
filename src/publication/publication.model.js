@@ -3,6 +3,7 @@ import {Schema, model} from 'mongoose';
 const publicationShema = Schema({
     user:{
         type: Schema.Types.ObjectId,
+        ref: 'User',
         required: [true, 'user is required.']
     },
     title:{

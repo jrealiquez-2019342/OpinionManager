@@ -67,7 +67,7 @@ export const login = async (req, res) => {
                 loggedUser,
                 authorization
             })
-        }else{
+        } else {
             return res.status(404).send({ message: `Invalid credentials.` })
         }
 
@@ -83,19 +83,22 @@ export const update = async (req, res) => {
 
         //extraer valores de req.user
         let user = req.user;
+        let userFind = await User.findOne({ _id: user._id });
 
-        let userFind = await User.findOne({_id: user.uid});
-        
         //extraer datos a actualizar
         let data = req.body;
 
         //validamos si el usuario quiere modificar su contrasenia
-        if(data.password){
+        if (data.password) {
             //validamos si ingreso la nueva contrasenia
-            if(!data.newPassword || data.newPassword == '') return res.status(401).send({message:`New password is required.`});
-            //validamos que la contrasenia antigua concida para poder cambiarla (p)
+            if (!data.newPassword || data.newPassword == '') return res.status(401).send({ message: `New password is required.` });
+            //validar que la oldpass y la newpass no sean iguales
+            if (data.password == data.newPassword) return res.status(401).send({ message: `Modify your new password.` });
+            //validamos que la contrasenia antigua concida para poder cambiarla (pass, passEncrypt)
             if (await checkPassword(data.password, userFind.password)) {
-                data.password = data.newPassword;
+                data.password = await encrypt(data.newPassword);
+            } else {
+                return res.status(401).send({ message: `Incorrect password.` });
             }
         }
 
@@ -104,7 +107,7 @@ export const update = async (req, res) => {
 
         //actualizar
         let updatedUser = await User.findOneAndUpdate(
-            { _id },
+            { _id: userFind._id },
             data,
             { new: true }
         )
@@ -127,19 +130,18 @@ export const update = async (req, res) => {
 
 export const deleteU = async (req, res) => {
     try {
-
-        let {password} = req.body;
+        let { password } = req.body;
         let user = req.user;
 
-        if(!password) return res.status(401).send({message:`password is required.`})
+        if (!password) return res.status(401).send({ message: `password is required.` })
 
-        if (await checkPassword(password, user.password)){
-            await User.findOneAndDelete({_id: user._id})
-            return res.send({message:`@${user.username} deleted successfully...`})
-        }else{
-            return res.status(401).send({message:`Incorrect password`})
+        if (await checkPassword(password, user.password)) {
+            //cambiamos el estado de true a false
+            await User.findOneAndUpdate({ _id: user._id }, user.status = false, { new: true });
+            return res.send({ message: `@${user.username} deleted successfully...` })
+        } else {
+            return res.status(401).send({ message: `Incorrect password` })
         }
-
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: `Error deleting account.` });
