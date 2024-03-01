@@ -109,19 +109,47 @@ export const comment = async (req, res) => {
     }
 }
 
-//eliminar comentario
-
-export const deleteC = async(req, res)=>{
+//editar comentario
+export const updateC = async (req, res) => {
     try {
-        //traer el id del comentario a eliminar
-        let {idComment} = req.params;
-        console.log(idComment);
+        //extrare el id del comentario
+        let { idComment } = req.params;
 
-        let user = req.user;
-        console.log(user + user._id);
+        //extraer la data para editar el comentario
+        let { comment: newComment } = req.body;
 
         //buscamos la publicacion que tiene el comentario y el usuario correspondiente
-        let publication = await Publication.findOne({ 
+        let publication = await Publication.findOneAndUpdate(
+            {
+                'comments._id': idComment,
+                'comments.user': req.user._id
+            },
+            //actualizamos en caso fue encontrado
+            { $set: { 'comments.$.comment': newComment } },
+            { new: true }
+        );
+
+        if (!publication) return res.status(404).send({ message: 'Comment not found or unauthorized' });
+
+        return res.send({ message: 'Comment updated successfully', publication });
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send({ message: `Error updating comment | updateC` });
+    }
+}
+
+//eliminar comentario
+
+export const deleteC = async (req, res) => {
+    try {
+        //traer el id del comentario a eliminar
+        let { idComment } = req.params;
+
+        let user = req.user;
+
+        //buscamos la publicacion que tiene el comentario y el usuario correspondiente
+        let publication = await Publication.findOne({
             'comments._id': idComment,
             'comments.user': user._id
         });
@@ -138,40 +166,40 @@ export const deleteC = async(req, res)=>{
             { new: true }
         ).populate('comments.user', 'username');
 
-        if(!updatedPublication) return res.status(400).send({message: `Comment not found | deleteC`});
-        return res.send({updatedPublication});
+        if (!updatedPublication) return res.status(400).send({ message: `Comment not found | deleteC` });
+        return res.send({ updatedPublication });
 
     } catch (err) {
         console.error(err);
-        return res.status(500).send({message:`Error deleting comment | deleteC`});
+        return res.status(500).send({ message: `Error deleting comment | deleteC` });
     }
 }
 
 //eliminar publicacion
 
-export const deleteP = async(req, res)=>{
+export const deleteP = async (req, res) => {
     try {
-        
+
         //extraemos el id de la publicacion
-        let {idPublication} = req.params;
+        let { idPublication } = req.params;
 
         //extraemos el usuario del token
         let user = req.user;
 
         //buscamos si existe la publicacion y la eliminamos
-        let publication = await Publication.findOneAndDelete({ 
+        let publication = await Publication.findOneAndDelete({
             _id: idPublication,
             user: user._id// Agregar condición para el ID del usuario de la publicación
         });
 
         //validamos si se elimino la publicacion
-        if(!publication) return res.status(400).send({message:`Publication not deleted | deleteP`});
+        if (!publication) return res.status(400).send({ message: `Publication not deleted | deleteP` });
 
-        return res.send({message:`Publication deleted successfully...`})
+        return res.send({ message: `Publication deleted successfully...` })
 
     } catch (err) {
         console.error(err);
-        return res.status(500).send({message: `Error deleting publication | deleteP`});
-        
+        return res.status(500).send({ message: `Error deleting publication | deleteP` });
+
     }
 }
